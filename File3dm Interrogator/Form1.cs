@@ -33,21 +33,17 @@ namespace File3dmInterrogator
                 try
                 {
                     
-                    var doc = Rhino.FileIO.File3dm.Read(openFileDialog1.FileName,Rhino.FileIO.File3dm.TableTypeFilter.Light, Rhino.FileIO.File3dm.ObjectTypeFilter.Any);
-
-                    
+                    var doc = Rhino.FileIO.File3dm.Read(openFileDialog1.FileName);
 
                     var report = new StringBuilder();
                     report.AppendLine(openFileDialog1.FileName);
                     
                     report.AppendLine("Rhino Version " + doc.ApplicationName);
                     report.AppendLine("File Version " + doc.Revision.ToString());
-
                     report.AppendLine(doc.Objects.Count.ToString() + " Objects in this file.");
+                    report.AppendLine(doc.PlugInData.Count.ToString() + " PlugInData elements in this file.");
                  
                     var objDictionary = new Dictionary<string, int>();
-
-
                     
                     foreach (var obj in doc.Objects)
                     {
