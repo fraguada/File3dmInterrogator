@@ -61,6 +61,16 @@ namespace File3dmInterrogator
 
                     }
 
+                    foreach(var obj in doc.NamedConstructionPlanes)
+                    {
+                        var key = "CPlane";
+                        if (objDictionary.ContainsKey(key))
+                            objDictionary[key] = objDictionary[key] + 1;
+                        else
+                            objDictionary.Add(key, 1);
+
+                    }
+
                     foreach (var kvp in objDictionary)
                     {
                         string line = kvp.Key + "\t" + kvp.Value.ToString();

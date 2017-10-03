@@ -2,3 +2,4 @@
 File3dm Interrogator/bin/
 File3dm Interrogator/obj/
 packages/
+*.refsignored
